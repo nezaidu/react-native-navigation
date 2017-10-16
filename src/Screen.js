@@ -96,6 +96,10 @@ class Navigator {
     return platformSpecific.navigatorToggleDrawer(this, params);
   }
 
+  setDrawerOpenGesture(params = {}) {
+    return platformSpecific.navigatorSetDrawerOpenGesture(this, params);
+  }
+
   setDrawerEnabled(params = {}) {
     return platformSpecific.navigatorSetDrawerEnabled(this, params);
   }

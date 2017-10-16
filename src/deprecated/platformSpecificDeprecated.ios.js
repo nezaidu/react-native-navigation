@@ -309,6 +309,11 @@ function navigatorResetTo(navigator, params) {
   });
 }
 
+function navigatorSetDrawerOpenGesture(navigator, params) {
+  const controllerID = navigator.navigatorID.split('_')[0];
+  Controllers.NavigationControllerIOS(controllerID + '_drawer').setDrawerOpenGesture(params);
+}
+
 function navigatorSetDrawerEnabled(navigator, params) {
     const controllerID = navigator.navigatorID.split('_')[0];
     Controllers.NavigationControllerIOS(controllerID + '_drawer').setDrawerEnabled(params)
@@ -384,8 +389,7 @@ function navigatorSetTabBadge(navigator, params) {
   if (params.tabIndex || params.tabIndex === 0) {
     Controllers.TabBarControllerIOS(controllerID + '_tabs').setBadge({
       tabIndex: params.tabIndex,
-      badge: params.badge,
-      badgeColor: params.badgeColor
+      badge: params.badge
     });
   } else {
     Controllers.TabBarControllerIOS(controllerID + '_tabs').setBadge({
@@ -568,7 +572,7 @@ function showInAppNotification(params) {
     navigatorEventID,
     navigatorID
   };
-  
+
   savePassProps(params);
 
   let args = {
@@ -641,6 +645,7 @@ export default {
   showInAppNotification,
   dismissInAppNotification,
   navigatorSetButtons,
+  navigatorSetDrawerOpenGesture,
   navigatorSetDrawerEnabled,
   navigatorSetTitle,
   navigatorSetSubtitle,

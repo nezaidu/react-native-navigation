@@ -163,6 +163,10 @@ var Controllers = {
       popToRoot: function (params) {
         RCCManager.NavigationControllerIOS(id, "popToRoot", params);
       },
+      setDrawerOpenGesture: function (params) {
+        // RCCManager.NavigationControllerIOS(id, "setDrawerOpenGesture", params);
+        RCCManager.DrawerControllerIOS(id, "setDrawerEnabled", params);
+      },
       setDrawerEnabled: function (params) {
         RCCManager.DrawerControllerIOS(id, "setDrawerEnabled", params);
       },
@@ -244,7 +248,6 @@ var Controllers = {
         return RCCManager.TabBarControllerIOS(id, "setTabBarHidden", params);
       },
       setBadge: function (params) {
-        _processProperties(params);
         return RCCManager.TabBarControllerIOS(id, "setBadge", params);
       },
       switchTo: function (params) {
