@@ -97,8 +97,12 @@ class Navigator {
   }
 
   setDrawerOpenGesture(params = {}) {
+    if (Platform.OS === 'android') {
+      return;
+    }
     return platformSpecific.navigatorSetDrawerOpenGesture(this, params);
   }
+
 
   setDrawerEnabled(params = {}) {
     return platformSpecific.navigatorSetDrawerEnabled(this, params);
